@@ -1,0 +1,49 @@
+data = Load '/data/Dathrecords.csv'USING PigStorage(',') as (Id;int Resident status;int,education1989revision;int,education reportingF1)
+ag:int,month of death :int,sex;char array ,agetype:int,age:int,agesubstitution:int,age recode52:int,age recode27:int,age recode12:int infant age recode22:int,place of death and accident status :int,marital status
+:char array,day of week of death:int,current data year:int,injury at work:char array,manner of death,cause recode39:intNumber of entity accesscondition
+g:int number of recode access conditions:int ,race :int,bridge race flag:int race imputation flag:int,race recode5:int,hispanic origin:int,hispnic origin race recode
+
+
+int);
+
+
+
+2016-11-15 20:15:13,361(main)info origin.apache.hadoop.conf.configuration.deprecation-fs.default.main is deprecated.instead,use fs.defaultf5
+
+
+dump data;
+
+
+
+
+
+
+
+
+
+(2631171,3,0,1,1,5,M,6,39,0,1,1,1,1,1,S,2,2014,U,7,O,N,99,99,P291,364,108,117,33,2,1,2,0,0,3,2,100,7)
+
+
+
+
+C=for each data generate id,icd10code;
+
+E=group C by ICD10code;
+
+
+describe E;
+
+E: (group:char array,C (ID:int,ICD10code:char array))
+
+
+
+X=FOR each E generate group,count (C);
+
+
+
+
+
+STORE X INTO'/DATA/NAME.csv'  USING PIG STORE(',');
+
+
+
